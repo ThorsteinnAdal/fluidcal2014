@@ -1,0 +1,72 @@
+1) Set up a virtual Machine
+	- MS Azure: Start an Ubuntu 14.02 box
+  - Momentarily selected 1.75 gb memory in order to allow compiling the packages
+
+	
+2) Setup of python environment:
+	2.1) Update ubuntu installation
+	2.2) Install pip and other python management packages
+	2.3) Install other cython, ipython and other useful packages
+	
+2.1) Update Ubuntu:
+	- Logged in via SSH
+	- updated local packages
+		> sudo apt-get update
+			-> 10.5 MB updated
+	- update all distribution packages
+		> sudo apt-get dist-upgrade
+			-> 219 MB disk-space upgrade
+	- remove outdated packages
+		> sudo apt-get autoremove
+			-> nothing removed
+	- reboot
+		> sudo reboot
+			-> logged out of session
+
+2.2) Setup python environment (pip)
+	- logged in via SSH
+	- Install essential C wrappers for Python
+		> sudo apt-get install build-essential python-dev
+			-> 132 MB addition
+	- install distribute (management package for python, should probably use setup-tools instead)
+	# https://pythonhosted.org/distribute/
+		> curl -O http://python-distribute.org/distribute_setup.py
+			-> received 17672 b
+		- install distribute
+			> sudo python distribute_setup.py
+				-> created packages inside /usr/local/lib/python2.7/
+			- remove installation files
+				> rm distribute*
+					-> rm: remove write-protected regular file '...'? [y]
+	- use distribute to install pip
+		> sudo easy_install pip
+			-> installed pip scripts to /usr/local/bin
+
+2.3) Prepare SciPy and other packages for python:
+  - installation of cython
+    > sudo pip cython
+      -> the box needs at least 1.75 gb memory to finish the installation process
+  - install SciPy and Numpy for computational work
+    # http://scipy.org/install.html
+    > sudo apt-get install python-numpy python-scipy python-matplotlib ipython ...
+      ipython-notebook python-pandas python-sympy python-nose
+      -> This takes a while
+    > sudo apt-get update
+      -> 20MB update
+    > sudo apt-get autoremove
+      -> some 2MB removed
+    
+2.4) Set up git contact to this repository:
+    #http://git-scm.com/book/en/Git-Basics-Working-with-Remotes
+    - logged in to my box via SSH
+       > sudo apt-get update
+    - installed git
+      > sudo apt-get install git
+        -> 21 MB addition
+    - Cloned the repository git clone git://github.com/ThorsteinnAdal/fluidcal2014
+       -> copied 8 files.
+       -> the folder is now in the home directory
+       
+       
+
+      
