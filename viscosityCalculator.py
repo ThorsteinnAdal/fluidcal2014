@@ -13,6 +13,25 @@ def D431_y(v):
     Zz = v + 0.7 + Cc - Dd + Ee - Ff + Gg - Hh
 
     return np.log10(np.log10(Zz))
+
+def D431L_y(vl):
+    retList=[]
+    for v in vl:
+        retList.append(D431_y(v))
+    return retList
+
+def D431L_x(tl):
+    retList=[]
+    for t in tl:
+        retList.append(D431_x(t))
+    return retList
+
+def listable(functionName, listName):
+    retList=[]
+    for l in listName:
+        retList.append(functionName(listName))
+    return retList
+    
     
 def D431_x(t):
     if t < 300:                 # t is probably in C
