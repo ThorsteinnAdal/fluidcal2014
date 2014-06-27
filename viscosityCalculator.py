@@ -27,7 +27,7 @@ def FVisc(x,A,B):
     return A - B*x
 
 
-def getCalibration():
+def enterMultipointCalibration():
     ind = 1
     visc=[]
     ts=[]
@@ -47,4 +47,6 @@ def getCalibration():
 
     yData = D431_y(visc)
     xData = D431_x(ts)
-    return yData
+
+
+
